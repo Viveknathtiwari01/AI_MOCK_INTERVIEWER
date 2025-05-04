@@ -8,9 +8,19 @@ const nextConfig = {
     }
   },
   webpack: (config) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
+    config.resolve = {
+      ...config.resolve,
+      fallback: {
+        ...config.resolve.fallback,
+        fs: false,
+      },
+      alias: {
+        ...config.resolve.alias,
+        '@': '.',
+        '@/lib': './lib',
+        '@/components': './components',
+        '@/app': './app'
+      }
     };
     return config;
   },
