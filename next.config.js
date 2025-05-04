@@ -2,7 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    serverActions: true,
+    serverActions: {
+      allowedOrigins: ["*"],
+      bodySizeLimit: "2mb"
+    }
   },
   webpack: (config) => {
     config.resolve.fallback = {
