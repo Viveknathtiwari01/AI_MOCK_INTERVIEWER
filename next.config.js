@@ -7,23 +7,8 @@ const nextConfig = {
       bodySizeLimit: "2mb"
     }
   },
-  webpack: (config) => {
-    config.resolve = {
-      ...config.resolve,
-      fallback: {
-        ...config.resolve.fallback,
-        fs: false,
-      },
-      alias: {
-        ...config.resolve.alias,
-        '@': '.',
-        '@/lib': './lib',
-        '@/components': './components',
-        '@/app': './app'
-      }
-    };
-    return config;
-  },
+  transpilePackages: ['@/lib', '@/components', '@/app'],
+  distDir: '.next'
 }
 
 module.exports = nextConfig 
